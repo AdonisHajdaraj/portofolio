@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adonis Hajdaraj - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f2f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(120deg, #007bff, #0056b3);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 3rem; margin-bottom: 10px; }
+    header p { font-size: 1.2rem; }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2.2rem;
+      color: #0d6efd;
+      margin-bottom: 25px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease-in-out;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    ul { padding-left: 20px; }
+    footer {
+      text-align: center;
+      background: #0d6efd;
+      color: white;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+    a {
+      color: #0d6efd;
+      text-decoration: none;
+    }
+    .skills span {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 8px 12px;
+      margin: 6px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Adonis Hajdaraj</h1>
+    <p>Full-Stack & Mobile Developer | Student në UBT</p>
+  </header>
+
+  <section>
+    <h2>Rreth Meje</h2>
+    <p>Jam një zhvillues entuziast dhe i përkushtuar nga Drenasi, student në vitin e fundit në UBT në drejtimin Shkenca Kompjuterike. Me një pasion për teknologjinë dhe zhvillimin e zgjidhjeve digjitale, kam përvojë të mirë në zhvillimin e aplikacioneve web dhe mobile duke përdorur teknologjitë më të fundit. Gjatë viteve të studimit, kam ndërtuar projekte reale që mbulojnë shumë fusha si: menaxhim biznesi, rezervime, e-commerce, punësim dhe më shumë. Jam gjithmonë i gatshëm të mësoj teknologji të reja, të bashkëpunoj në ekip dhe të jap kontribut real në zgjidhje kreative dhe të qëndrueshme.</p>
+  </section>
+
+  <section>
+    <h2>Aftësitë</h2>
+    <div class="skills">
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React.js</span><span>Next.js</span>
+      <span>PHP</span><span>Node.js</span><span>Java</span><span>Kotlin</span>
+      <span>MySQL</span><span>MongoDB</span><span>WordPress</span><span>Git</span>
+      <span>REST API</span><span>JWT Auth</span><span>PayPal API</span>
+      <span>Web Hosting</span><span>Live Chat</span><span>Bootstrap</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projektet Kryesore</h2>
+    <div class="grid">
+      <div class="card"><h3>Fast Food Website</h3><p>HTML, CSS, JavaScript, PHP, MySQL. JWT autentikim dhe struktura të ndërlidhura.</p></div>
+      <div class="card"><h3>Sistem Menaxhimi Hoteli</h3><p>React, Node.js. Rezervime, menaxhim dhomash dhe klientësh me JWT.</p></div>
+      <div class="card"><h3>Menaxhim i Notave</h3><p>React, Node.js. Panel për studentë dhe profesorë me databazë të relacionalizuar.</p></div>
+      <div class="card"><h3>Rent a Car Website</h3><p>HTML, CSS, JS, PHP. Rezervime dhe autentikim për përdoruesit.</p></div>
+      <div class="card"><h3>Platformë për Kërkim Pune</h3><p>Next.js, MongoDB. Panel për kompani dhe përdorues, JWT autentikim.</p></div>
+      <div class="card"><h3>Platformë E-commerce</h3><p>React, Node.js, MySQL. Pagesa me PayPal, live chat dhe menaxhim produktesh.</p></div>
+      <div class="card"><h3>Aplikacion Android për Ushqim</h3><p>Java & Kotlin. Login, porosi, përzgjedhje ushqimi dhe ndjekje porosish.</p></div>
+      <div class="card"><h3>Mini Projekte</h3><p>Kalkulator, Llogaritës moshe, To-Do List me HTML, CSS, JavaScript.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Trajnime</h2>
+    <ul>
+      <li>Probit Academy – Java & Spring Boot</li>
+      <li>Arra Academy – Full-Stack Development & WordPress</li>
+      <li>Techtion Academy – React.js</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Kontakt</h2>
+    <p>📞 <strong>+383 43 969 447</strong></p>
+    <p>✉️ <a href="mailto:hajdarajadonis24@gmail.com">hajdarajadonis24@gmail.com</a></p>
+    <p>📍 Drenas, Kosovë</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Adonis Hajdaraj. Të gjitha të drejtat e rezervuara.
+  </footer>
+</body>
+</html>
