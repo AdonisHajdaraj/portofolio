@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adonis Hajdaraj | Full-Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .skill-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .skill-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Project Styles */
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Individual Project Slider */
+        .project-slider-container {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+        
+        .project-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        
+        .project-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .project-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-slide.video-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Slider Navigation Buttons */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        
+        .slider-nav:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        .prev-slide {
+            left: 15px;
+        }
+        
+        .next-slide {
+            right: 15px;
+        }
+        
+        .slider-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .slider-dot.active {
+            background-color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+        
+        .project-content {
+            padding: 30px;
+        }
+        
+        .badge {
+            background-color: var(--secondary-color);
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        /* Other Projects Styles */
+        .other-projects {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .project-link {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .project-link:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .project-link h5 a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .project-link h5 a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .project-link .btn {
+            margin-top: 10px;
+        }
+        
+        /* Certificates Styles */
+        .certificates {
+            padding: 80px 0;
+        }
+        
+        .certificate-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .certificate-image {
+            height: 200px;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .certificate-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .certificate-content {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .certificate-content h5 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .certificate-content p {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .certificate-content small {
+            color: #666;
+        }
+        
+        /* Video Controls */
+        .video-controls {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            z-index: 10;
+        }
+        
+        .video-btn {
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .video-btn:hover {
+            background-color: rgba(0,0,0,0.9);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 25px;
+        }
+        
+        .timeline-item:nth-child(odd):after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even):after {
+            left: -10px;
+        }
+        
+        .contact-info {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-right: 15px;
+        }
+        
+        footer {
+            background: linear-gradient(180deg, #1f2a36 0%, var(--primary-color) 100%);
+            color: #e9f0f6;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 15px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-col {
+            flex: 1 1 220px;
+            min-width: 200px;
+        }
+
+        .footer-col h5 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            color: #cfe3f3;
+            line-height: 1.6;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #d7e7f2;
+            text-decoration: none;
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--secondary-color); }
+
+        .footer-contact p { color: #d7e7f2; margin-bottom: 8px; }
+
+        .footer-social a { color: #fff; margin-right: 12px; font-size: 1.2rem; display:inline-block; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            margin-top: 30px;
+            padding-top: 18px;
+            text-align: center;
+            color: #bcd3e6;
+            font-size: 0.95rem;
+        }
+
+        .footer-bottom small {
+            color: #9fb6c8;
+            font-size: 0.9rem;
+        }
+
+        /* Center and narrow the bottom copyright text */
+        .footer-bottom .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-bottom .container small {
+            max-width: 360px;
+            display: block;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* Full-width footer background wrapper (content is boxed) */
+        .footer-bg {
+            width: 100%;
+            background: linear-gradient(180deg, #1f2a36 0%, var(--primary-color) 100%);
+            color: #e9f0f6;
+            padding-top: 40px;
+            padding-bottom: 12px;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 28px;
+            background: var(--secondary-color);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            z-index: 20000;
+            font-size: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline:before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:after {
+                left: 21px !important;
+            }
+            
+            .project-slider-container {
+                height: 250px;
+            }
+        }
+        
+        /* Instructions for image/video replacement */
+        .image-instructions {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        
+        .project-info {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* GitHub CTA Box */
+        .github-cta-box {
+            background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
+            color: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .github-cta-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+        }
+
+        .github-cta-box h4 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .github-cta-box p {
+            font-size: 1rem;
+            color: #d0d0d0;
+        }
+
+        .github-cta-box .btn-dark {
+            background-color: #0d1117;
+            border-color: #30363d;
+            font-weight: 500;
+            padding: 12px 28px;
+            font-size: 1rem;
+        }
+
+        .github-cta-box .btn-dark:hover {
+            background-color: #161b22;
+            border-color: #30363d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">Adonis Hajdaraj</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#certificates">Certificates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero" ">
+    <div class="container">
+        <h1 style="font-size:3rem; margin-bottom:10px;">Adonis Hajdaraj</h1>
+        <p style="font-size:1.2rem; margin-bottom:5px;">Full-Stack Developer & Computer Science Engineer</p>
+        <p style="margin-bottom:20px;">Passionate about creating functional, secure, and efficient web applications with modern technologies.</p>
+        
+        <div class="hero-buttons" style="margin-top:20px;">
+            <button class="btn btn-secondary btn-lg" onclick="openModal('cv')">View CV</button>
+            <button class="btn btn-secondary btn-lg" onclick="openModal('diploma')">View Diploma</button>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div id="fileModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+    <div class="modal-content" style="position:relative; max-width:900px; width:90%; height:90%; background:white; padding:20px; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.3);">
+        <span class="close-btn" onclick="closeModal()" style="position:absolute; top:10px; right:15px; font-size:30px; cursor:pointer; color:#333;">&times;</span>
+        <iframe id="modalPDF" src="" style="width:100%; height:100%; border:none; border-radius:5px;"></iframe>
+    </div>
+</div>
+
+<!-- Image Modal -->
+<div id="imageModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:10000;">
+    <span class="close" onclick="closeImageModal()" style="position:absolute; top:15px; right:35px; color:#f1f1f1; font-size:40px; font-weight:bold; cursor:pointer;">&times;</span>
+    <img class="modal-content" id="modalImage" style="max-width:90%; max-height:90%; border-radius:5px;">
+    <a class="prev" onclick="changeImage(-1)" style="cursor:pointer; position:absolute; top:50%; left:0; color:white; font-size:30px; font-weight:bold; padding:16px; text-decoration:none;">&#10094;</a>
+    <a class="next" onclick="changeImage(1)" style="cursor:pointer; position:absolute; top:50%; right:0; color:white; font-size:30px; font-weight:bold; padding:16px; text-decoration:none;">&#10095;</a>
+</div>
+
+
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <p>I am a passionate developer focused on frontend, backend, and full-stack development. I have completed my Bachelor's degree in Computer Science at UBT and I am currently pursuing my Master's studies in the same field.</p>
+                        <p>Throughout my academic journey and practical projects, I have built functional and secure applications using technologies such as Node.js, Express, React.js, React Native, Next.js, MySQL, and MongoDB. In these projects, I have implemented JWT authentication, role management, well-structured APIs, correct database relationships, as well as online payment methods.</p>
+                        <p>I am highly committed, always eager to learn new technologies, and motivated to solve real-world problems through efficient software solutions. My goal is to contribute to a professional team where I can continue growing as a developer and deliver high-quality results.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h4>Contact Information</h4>
+                        <p><i class="fas fa-phone contact-icon"></i> +383 43 969 447</p>
+                        <p><i class="fas fa-envelope contact-icon"></i> hajdarajadonis24@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt contact-icon"></i> Drenas, Kosovo</p>
+                        <p><i class="fab fa-github contact-icon"></i> <a href="https://github.com/AdonisHajdaraj" target="_blank">https://github.com/AdonisHajdaraj</a></p>
+                        <p><i class="fab fa-linkedin contact-icon"></i> <a href="https://www.linkedin.com/in/adonis-hajdaraj-8859b32a0/" target="_blank">https://www.linkedin.com/in/adonis-hajdaraj-8859b32a0/</a></p>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills bg-light">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Frontend</h4>
+                        <p>HTML, CSS, Bootstrap, JavaScript, React.js, Next.js</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h4>Backend</h4>
+                        <p>PHP, Node.js, Java, Express.js</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Database & CMS</h4>
+                        <p>MySQL, MongoDB, WordPress</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4>Design Tools</h4>
+                        <p>Photoshop, Illustrator, Figma, Canva</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Other Skills</h4>
+                        <p>JWT Authentication, API Development, Payment Integration, Responsive Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Education & Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h5>Bachelor's Degree in Computer Science</h5>
+                        <p class="text-muted">University for Business and Technology - UBT</p>
+                        <p>Completed my undergraduate studies with focus on software engineering and web development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h5>Master's Student in Computer Science</h5>
+                        <p class="text-muted">University for Business and Technology - UBT</p>
+                        <p>Currently pursuing advanced studies in computer science and software engineering.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h5>Full-Stack Internship</h5>
+                        <p class="text-muted">Tectigon Academy</p>
+                        <p>Gained practical experience in full-stack development during this internship program.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h5>Trainings & Certifications</h5>
+                        <ul>
+                            <li>Probit Academy – Java & Spring Boot</li>
+                            <li>Arra Academy – Full Stack</li>
+                            <li>Techtion Academy – React.js</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section with Individual Sliders -->
+    <section id="projects" class="projects bg-light">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            
+       <!-- Project 1 - Hotel Management System -->
+<div class="project-card">
+    <div class="project-slider-container" id="hotel-slider">
+        <div class="project-slider">
+
+            <div class="project-slide">
+                <img src="images/hotel/login.png" alt="Login Page" onclick="openImageModal(this, 'hotel')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/hotel/dashbaord.png" alt="Admin Dashboard" onclick="openImageModal(this, 'hotel')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/hotel/dhoamt.png" alt="Shop Page" onclick="openImageModal(this, 'hotel')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/hotel/rezervo .png" alt="Shop Page 2" onclick="openImageModal(this, 'hotel')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/hotel/menu.png" alt="Orders Page" onclick="openImageModal(this, 'hotel')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/hotel/help.png" alt="Orders Page 2" onclick="openImageModal(this, 'hotel')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/hotel/dhomat .png" alt="User Management" onclick="openImageModal(this, 'hotel')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/hotel/orari.png" alt="Messages" onclick="openImageModal(this, 'hotel')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/hotel/logout.png" alt="Messages 2" onclick="openImageModal(this, 'hotel')" style="cursor:pointer;">
+            </div>
+
+            
+
+        </div>
+
+        <!-- Slider Navigation -->
+        <button class="slider-nav prev-slide" onclick="changeSlide('hotel', -1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-nav next-slide" onclick="changeSlide('hotel', 1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Slider Dots (i rregullojmë me JS automatikisht nëse do) -->
+        <div class="slider-dots" id="hotel-dots"></div>
+
+    </div>
+
+    <div class="project-content">
+        <h3>Hotel Management System</h3>
+        <p>This is a full-stack web application built with React for hotel management, providing separate interfaces for administrators and regular users. The system allows hotel staff to manage rooms, reservations, employees,
+             work schedules, and menu items, while guests can browse available rooms, make reservations, view the restaurant menu, and submit feedback. Administrators have full control over all hotel operations through a 
+            dedicated dashboard, including adding, editing, and deleting rooms, managing employee work schedules, tracking reservations, monitoring user feedback, and updating the food menu. The application uses React with Bootstrap 
+            for the frontend, Node.js/Express for the backend API, and MySQL for the database, offering a modern, responsive, and user-friendly experience for both hotel staff and guests</p>  
+        <div class="mb-3">
+            <span class="badge">React.js</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">Bootstrap</span>
+            
+             <span class="badge">MySQL</span>
+            <span class="badge">Express.js</span>
+         
+        </div>
+    </div>
+</div>
+            
+            <!-- Project 2 - E-commerce System -->
+<div class="project-card">
+    <div class="project-slider-container" id="ecommerce-slider">
+        <div class="project-slider">
+
+            <div class="project-slide">
+                <img src="images/ecommerce/login .png" alt="Login Page" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/dashboard.png" alt="Admin Dashboard" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/shop.png" alt="Shop Page" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/shop2.png" alt="Shop Page 2" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/orders.png" alt="Orders Page" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/orders2.png" alt="Orders Page 2" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/user.png" alt="User Management" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/mesazhet.png" alt="Messages" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/mesazhet2.png" alt="Messages 2" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/udashboard.png" alt="User Dashboard" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/ushop.png" alt="User Shop" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/ushop2.png" alt="User Shop 2" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/card.png" alt="Cart Page" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/umessage.png" alt="User Messages" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+            <div class="project-slide">
+                <img src="images/ecommerce/logout.png" alt="Logout" onclick="openImageModal(this, 'ecommerce')" style="cursor:pointer;">
+            </div>
+
+        </div>
+
+        <!-- Slider Navigation -->
+        <button class="slider-nav prev-slide" onclick="changeSlide('ecommerce', -1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-nav next-slide" onclick="changeSlide('ecommerce', 1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Slider Dots (i rregullojmë me JS automatikisht nëse do) -->
+        <div class="slider-dots" id="ecommerce-dots"></div>
+
+    </div>
+
+    <div class="project-content">
+        <h3>E-commerce System</h3>
+        <p>The E-commerce System is a full-stack online shopping platform designed to deliver a secure, scalable, and user-friendly digital commerce experience. The application enables users to register, authenticate securely, browse products by categories, perform advanced searches, and manage their shopping cart with real-time updates. The checkout process is fully integrated with Stripe API to ensure secure online payments and transaction handling.
+
+On the administrative side, the system includes a comprehensive dashboard that allows full control over products, inventory, orders, and user management. Administrators can create, update, and delete products, monitor stock levels, track order statuses in real time, and manage customer communications. The dashboard provides a structured overview of platform activity, improving operational efficiency and decision-making.
+
+The frontend is developed using React.js to ensure a dynamic and responsive user interface, while the backend is built with Node.js and Express.js following RESTful API architecture principles. MongoDB is used as the database solution to handle scalable data storage and efficient querying. The system follows modern full-stack development practices, including role-based access control, secure authentication flows, and clean separation between client and server logic.
+
+This project demonstrates strong understanding of full-stack architecture, API integration, payment processing, state management, and scalable web application design.</p>  
+        <div class="mb-3">
+            <span class="badge">React.js</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">Bootstrap</span>
+            <span class="badge">MongoDB</span>
+             <span class="badge">MySQL</span>
+            <span class="badge">Express.js</span>
+         
+        </div>
+    </div>
+</div>
+
+    <!-- Project 3 - SMIS (School Management System) -->
+<div class="project-card">
+    <div class="project-slider-container" id="smis-slider">
+        <div class="project-slider">
+
+            <div class="project-slide">
+                <img src="images/smis/home.png" alt="SMIS Home Page" onclick="openImageModal(this, 'smis')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/smis/dashboard_s.png" alt="Admin Dashboard" onclick="openImageModal(this, 'smis')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/smis/shkollat.png" alt="Schools Management" onclick="openImageModal(this, 'smis')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/smis/lendet.png" alt="Subjects Management" onclick="openImageModal(this, 'smis')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/smis/notat.png" alt="Grades Management" onclick="openImageModal(this, 'smis')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/smis/user_s.png" alt="User Management" onclick="openImageModal(this, 'smis')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/smis/lendetu.png" alt="Student Subjects View" onclick="openImageModal(this, 'smis')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/smis/unotata.png" alt="Student Grades View" onclick="openImageModal(this, 'smis')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/smis/loaguts.png" alt="Logout Page" onclick="openImageModal(this, 'smis')" style="cursor:pointer;">
+            </div>
+
+        </div>
+
+        <!-- Slider Navigation -->
+        <button class="slider-nav prev-slide" onclick="changeSlide('smis', -1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-nav next-slide" onclick="changeSlide('smis', 1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Slider Dots -->
+        <div class="slider-dots" id="smis-dots"></div>
+    </div>
+
+    <div class="project-content">
+        <h3>School Management Information System (SMIS)</h3>
+        <p>
+        The School Management Information System (SMIS) is a full-stack web application designed to help schools efficiently manage students, subjects, grades, and users through a centralized dashboard. Administrators can securely manage academic data, teachers can monitor student performance, and students can view their grades and schedules in real time.
+
+        The frontend is built with React.js and Bootstrap for a dynamic, responsive interface, while the backend uses Node.js and Express.js. MySQL serves as the relational database for structured academic data. SMIS implements secure authentication, role-based access control, and full CRUD functionality, demonstrating a scalable, real-world full-stack application.
+        </p>
+        <div class="mb-3">
+            <span class="badge">React.js</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">Bootstrap</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">Express.js</span>
+        </div>
+    </div>
+</div>
+
+    <!-- Project 4 - Hospital UI/UX Design in Figma -->
+<div class="project-card">
+    <div class="project-slider-container" id="spital-slider">
+        <div class="project-slider">
+
+            <div class="project-slide">
+                <img src="images/spital/f1.png" alt="Hospital Design 1" onclick="openImageModal(this, 'spital')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/spital/f2.png" alt="Hospital Design 2" onclick="openImageModal(this, 'spital')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/spital/f3.png" alt="Hospital Design 3" onclick="openImageModal(this, 'spital')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/spital/f4.png" alt="Hospital Design 4" onclick="openImageModal(this, 'spital')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/spital/f5.png" alt="Hospital Design 5" onclick="openImageModal(this, 'spital')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/spital/f6.png" alt="Hospital Design 6" onclick="openImageModal(this, 'spital')" style="cursor:pointer;">
+            </div>
+            <div class="project-slide">
+                <img src="images/spital/f7.png" alt="Hospital Design 7" onclick="openImageModal(this, 'spital')" style="cursor:pointer;">
+            </div>
+
+        </div>
+
+        <!-- Slider Navigation -->
+        <button class="slider-nav prev-slide" onclick="changeSlide('spital', -1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-nav next-slide" onclick="changeSlide('spital', 1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Slider Dots -->
+        <div class="slider-dots" id="spital-dots"></div>
+    </div>
+
+    <div class="project-content">
+        <h3>Hospital UI/UX Design in Figma</h3>
+        <p>This is a comprehensive UI/UX design project for a hospital management system created in Figma. The design includes user-friendly interfaces for patient registration, appointment scheduling, medical records management, and administrative dashboards. The project demonstrates modern design principles with clean layouts, intuitive navigation, and accessibility considerations for healthcare professionals and patients.</p>
+        <div class="mb-3">
+            <span class="badge">Figma</span>
+            <span class="badge">UI/UX Design</span>
+            <span class="badge">Healthcare</span>
+        </div>
+    </div>
+</div>
+
+    <!-- Other Projects Section -->
+    <div class="other-projects mt-5">
+        <div class="container">
+            <h3 class="text-center mb-4">Other Projects</h3>
+            <p class="text-center mb-4">Here are some front-end only projects that showcase my design and development skills:</p>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="project-link">
+                        <h5><i class="fas fa-external-link-alt me-2"></i><a href="https://movie-website-ajub.vercel.app/" target="_blank">Netflix Clone - React JS</a></h5>
+                        <p>A Netflix-inspired movie streaming website built with React JS, featuring movie listings, search functionality, and responsive design.</p>
+                        <a href="https://movie-website-ajub.vercel.app/" target="_blank" class="btn btn-sm btn-primary">View Live Demo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="project-link">
+                        <h5><i class="fas fa-external-link-alt me-2"></i><a href="https://comments-obht.vercel.app/" target="_blank">Comment System</a></h5>
+                        <p>A dynamic comment system allowing users to post, reply, and interact with comments in real-time.</p>
+                        <a href="https://comments-obht.vercel.app/" target="_blank" class="btn btn-sm btn-primary">View Live Demo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="project-link">
+                        <h5><i class="fas fa-external-link-alt me-2"></i><a href="https://restaurant-nnro.vercel.app/" target="_blank">Italian Restaurant Menu - React JS</a></h5>
+                        <p>A responsive single-page menu for an Italian restaurant built with React.js showcasing dishes, prices, and a clean design.</p>
+                        <a href="https://restaurant-nnro.vercel.app/" target="_blank" class="btn btn-sm btn-primary">View Live Demo <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Add more as needed -->
+            </div>
+            <div class="text-center mt-5 mb-4">
+                <div class="github-cta-box">
+                    <h4 class="mb-3"><i class="fab fa-github me-2"></i>Explore More Projects</h4>
+                    <p class="text-muted mb-3">Discover more projects, contributions, and source code on my GitHub profile</p>
+                    <a href="https://github.com/AdonisHajdaraj" target="_blank" class="btn btn-lg btn-dark"><i class="fab fa-github me-2"></i>Visit GitHub Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates bg-light">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img src="images/certificates/c1.jpeg" alt="Full Stack Certificate" class="img-fluid">
+                        </div>
+                        <div class="certificate-content">
+                            <h5>Full Stack Development</h5>
+                          
+                            <small>JPG Certificate</small>
+                            <div class="mt-2"><a href="images/certificates/c1.jpeg" target="_blank" class="btn btn-sm btn-outline-primary">View</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img src="images/certificates/c2.png" alt="WordPress & Digital Marketing" class="img-fluid">
+                        </div>
+                        <div class="certificate-content">
+                            <h5>WordPress & Digital Marketing</h5>
+                            
+                            <small>PNG Certificate</small>
+                            <div class="mt-2"><a href="images/certificates/c2.png" target="_blank" class="btn btn-sm btn-outline-primary">View</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img src="images/certificates/c3.png" alt="Java OOP Fundamentals" class="img-fluid">
+                        </div>
+                        <div class="certificate-content">
+                            <h5>Fundamentals in Java OOP</h5>
+                          
+                            <small>PNG Certificate</small>
+                            <div class="mt-2"><a href="images/certificates/c3.png" target="_blank" class="btn btn-sm btn-outline-primary">View</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img src="images/certificates/ce4.png" alt="Basic Problem Solving (PNG)" class="img-fluid">
+                        </div>
+                        <div class="certificate-content">
+                            <h5>Basic Problem Solving</h5>
+                         
+                            <small>PNG Certificate</small>
+                            <div class="mt-2"><a href="images/certificates/ce4.png" target="_blank" class="btn btn-sm btn-outline-primary">View</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img src="images/certificates/ce5.png" alt="Front End (PNG)" class="img-fluid">
+                        </div>
+                        <div class="certificate-content">
+                            <h5>Front End</h5>
+                         
+                            <small>PNG Certificate</small>
+                            <div class="mt-2"><a href="images/certificates/ce5.png" target="_blank" class="btn btn-sm btn-outline-primary">View</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="certificate-card">
+                        <div class="certificate-image">
+                            <img src="images/certificates/ce6.png" alt="Software Engineer (PNG)" class="img-fluid">
+                        </div>
+                        <div class="certificate-content">
+                            <h5>Software Engineer</h5>
+                          
+                            <small>PNG Certificate</small>
+                            <div class="mt-2"><a href="images/certificates/ce6.png" target="_blank" class="btn btn-sm btn-outline-primary">View</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Seminar Project Section -->
+    <section id="seminar" class="seminar">
+        <div class="container">
+            <h2 class="section-title">Seminar Paper</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto mb-4">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h5>Analysis of Modern Frontend Technologies: React.js, Vue.js, Angular</h5>
+                            <p>This paper presents a comparative analysis of modern frontend technologies: React.js, Vue.js, and Angular. The main objective is to identify the key differences among these frameworks and libraries in terms of architecture, component development approaches, state management, and performance behavior across various projects. React.js, developed by Meta, emphasizes a declarative and flexible approach to building user interfaces, offering significant freedom in selecting additional libraries. Vue.js is known for its simplicity, gentle learning curve, and intuitive structure, while Angular, developed by Google, provides a comprehensive framework with integrated features for large and complex projects. Through theoretical analysis and practical examples, the paper aims to help developers and researchers better understand the purpose, advantages, limitations, and optimal use cases of each technology, enabling the selection of the most suitable tool for different web development projects.</p>
+                            <div class="mt-3">
+                                <a href="docs/Punim%20Seminarik%20-Analiza%20Teknologjive%20te%20modernizuara%20te%20frontend.pdf" target="_blank" class="btn btn-primary">Open Seminar PDF</a>
+                                <a href="docs/Punim%20Seminarik%20-Analiza%20Teknologjive%20te%20modernizuara%20te%20frontend.pdf" download class="btn btn-outline-secondary ms-2">Download PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-info text-center">
+                        <h4>Let's Work Together</h4>
+                        <p>I'm always interested in new opportunities and exciting projects. Feel free to reach out if you'd like to collaborate or just say hello!</p>
+                        <div class="mt-4">
+                            <p><i class="fas fa-phone contact-icon"></i> +383 43 969 447</p>
+                            <p><i class="fas fa-envelope contact-icon"></i> hajdarajadonis24@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt contact-icon"></i> Drenas, Kosovo</p>
+                             <p><i class="fab fa-github contact-icon"></i> <a href="https://github.com/AdonisHajdaraj" target="_blank">https://github.com/AdonisHajdaraj</a></p>
+                        <p><i class="fab fa-linkedin contact-icon"></i> <a href="https://www.linkedin.com/in/adonis-hajdaraj-8859b32a0/" target="_blank">https://www.linkedin.com/in/adonis-hajdaraj-8859b32a0/</a></p>
+                      
+                            
+                        </div>
+                        <div class="social-links mt-4">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-fluid footer-bottom">
+            <div class="container text-center"><small>&copy; 2026 Adonis Hajdaraj. All rights reserved.</small></div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">&#8679;</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Store current slide index for each project
+        const slideIndexes = {
+            hotel: 0,
+            ecommerce: 0,
+            smis: 0,
+            spital: 0
+        };
+        
+        // Get total slides for each project
+        const totalSlides = {
+            hotel: document.querySelectorAll('#hotel-slider .project-slide').length,
+            ecommerce: document.querySelectorAll('#ecommerce-slider .project-slide').length,
+            smis: document.querySelectorAll('#smis-slider .project-slide').length,
+            spital: document.querySelectorAll('#spital-slider .project-slide').length
+        };
+        
+        // Function to change slide
+        function changeSlide(projectId, direction) {
+            // Update slide index
+            slideIndexes[projectId] += direction;
+            
+            // Check boundaries
+            if (slideIndexes[projectId] >= totalSlides[projectId]) {
+                slideIndexes[projectId] = 0;
+            } else if (slideIndexes[projectId] < 0) {
+                slideIndexes[projectId] = totalSlides[projectId] - 1;
+            }
+            
+            // Update slider position
+            const slider = document.getElementById(`${projectId}-slider`).querySelector('.project-slider');
+            slider.style.transform = `translateX(-${slideIndexes[projectId] * 100}%)`;
+            
+            // Update dots
+            updateDots(projectId);
+        }
+        
+        // Function to go to specific slide
+        function goToSlide(projectId, slideNumber) {
+            slideIndexes[projectId] = slideNumber;
+            
+            // Update slider position
+            const slider = document.getElementById(`${projectId}-slider`).querySelector('.project-slider');
+            slider.style.transform = `translateX(-${slideIndexes[projectId] * 100}%)`;
+            
+            // Update dots
+            updateDots(projectId);
+        }
+        
+        // Function to update dots
+        function updateDots(projectId) {
+            const dots = document.getElementById(`${projectId}-dots`).querySelectorAll('.slider-dot');
+            
+            // Remove active class from all dots
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Add active class to current dot
+            dots[slideIndexes[projectId]].classList.add('active');
+        }
+        
+        // Function to play/pause video
+        function playPauseVideo(videoId) {
+            const video = document.getElementById(videoId);
+            const button = event.currentTarget.querySelector('i');
+            
+            if (video.paused) {
+                video.play();
+                button.classList.remove('fa-play');
+                button.classList.add('fa-pause');
+            } else {
+                video.pause();
+                button.classList.remove('fa-pause');
+                button.classList.add('fa-play');
+            }
+        }
+        
+        // Auto-advance slides (optional)
+        function autoAdvanceSlides() {
+            for (const projectId in slideIndexes) {
+                changeSlide(projectId, 1);
+            }
+        }
+        
+        // Uncomment below line to enable auto-advance (every 5 seconds)
+        // setInterval(autoAdvanceSlides, 5000);
+        
+        // Image Modal variables
+        let currentImages = [];
+        let currentImageIndex = 0;
+        
+        // Function to open image modal
+        function openImageModal(imgElement, projectId) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            
+            // Get all images in the project slider
+            const slider = document.getElementById(`${projectId}-slider`);
+            const images = slider.querySelectorAll('.project-slide img');
+            currentImages = Array.from(images).map(img => ({src: img.src, alt: img.alt}));
+            
+            // Find the index of the clicked image
+            currentImageIndex = currentImages.findIndex(img => img.src === imgElement.src);
+            
+            // Set the modal image
+            modalImg.src = currentImages[currentImageIndex].src;
+            modalImg.alt = currentImages[currentImageIndex].alt;
+            
+            // Show modal
+            modal.style.display = "flex";
+        }
+        
+        // Function to close image modal
+        function closeImageModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+        
+        // Function to change image in modal
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex >= currentImages.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = currentImages.length - 1;
+            }
+            const modalImg = document.getElementById("modalImage");
+            modalImg.src = currentImages[currentImageIndex].src;
+            modalImg.alt = currentImages[currentImageIndex].alt;
+        }
+        
+        // Keyboard navigation for image modal
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById("imageModal");
+            if (modal.style.display === "flex") {
+                if (event.key === "ArrowLeft") {
+                    changeImage(-1);
+                } else if (event.key === "ArrowRight") {
+                    changeImage(1);
+                } else if (event.key === "Escape") {
+                    closeImageModal();
+                }
+            }
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target === modal) {
+                closeImageModal();
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if(window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.backgroundColor = 'white';
+                navbar.style.boxShadow = '0 4px 12px rgba(0,0,0,0.05)';
+            }
+        });
+        
+        // Initialize all videos to pause and update button icons
+        document.querySelectorAll('video').forEach(video => {
+            video.addEventListener('play', function() {
+                const button = this.closest('.video-slide').querySelector('.video-btn i');
+                button.classList.remove('fa-play');
+                button.classList.add('fa-pause');
+            });
+            
+            video.addEventListener('pause', function() {
+                const button = this.closest('.video-slide').querySelector('.video-btn i');
+                button.classList.remove('fa-pause');
+                button.classList.add('fa-play');
+            });
+        });
+       
+function openModal(type) {
+    const modal = document.getElementById("fileModal");
+    const iframe = document.getElementById("modalPDF");
+
+    if(type === "cv") {
+        iframe.src = "images/cv.pdf";      // vendos rrugën relative për CV PDF
+    } else if(type === "diploma") {
+        iframe.src = "images/diploma.pdf"; // vendos rrugën relative për Diploma PDF
+    }
+
+    modal.style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("fileModal").style.display = "none";
+    document.getElementById("modalPDF").src = ""; // hiq PDF kur mbyllet modal
+}
+
+// Mbyll modal edhe kur klikoj jashtë modal-content
+window.onclick = function(event) {
+    const modal = document.getElementById("fileModal");
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+// Back to top button behavior
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        backToTop.style.display = 'flex';
+    } else {
+        backToTop.style.display = 'none';
+    }
+});
+backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+    </script>
+</body>
+</html>
