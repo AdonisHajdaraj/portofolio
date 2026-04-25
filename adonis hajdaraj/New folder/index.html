@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adonis Hajdaraj - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f2f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(120deg, #007bff, #0056b3);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 3rem; margin-bottom: 10px; }
+    header p { font-size: 1.2rem; }
+
+    .action-buttons {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .action-buttons a {
+      display: inline-block;
+      background: #0d6efd;
+      color: white;
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+    .action-buttons a:hover {
+      background: #084298;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2.2rem;
+      color: #0d6efd;
+      margin-bottom: 25px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease-in-out;
+    }
+    .card:hover { transform: translateY(-5px); }
+    ul { padding-left: 20px; }
+    footer {
+      text-align: center;
+      background: #0d6efd;
+      color: white;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+    a { color: #0d6efd; text-decoration: none; }
+    .skills span {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 8px 12px;
+      margin: 6px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+    /* ===== Certificates ===== */
+    .certificates {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .certificate-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease-in-out;
+    }
+    .certificate-card:hover { transform: scale(1.03); }
+    .certificate-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .certificate-card p {
+      text-align: center;
+      padding: 12px;
+      font-weight: 500;
+      background: #f9fafb;
+    }
+  </style>
+  
+</head>
+<body>
+  <header>
+    <h1>Adonis Hajdaraj</h1>
+    <p>Full-Stack & Mobile Developer | Student at UBT</p>
+  </header>
+
+  <div class="action-buttons">
+    <a href="images/cv..pdf"  download>📄 Download CV in Albanian language</a>
+      <a href="images/Cv.pdf"  download>📄 Download CV in English</a>
+  </div>
+  
+
+  <section>
+    <h2>About Me</h2>
+    <p>I am an enthusiastic and dedicated developer, a final-year student at UBT in Computer Science. With a passion for technology and building digital solutions, I have solid experience in developing web and mobile applications using the latest technologies. Throughout my studies, I have built real projects covering areas such as business management, reservations, e-commerce, employment, and more. I am always eager to learn new technologies, collaborate in teams, and contribute to creative and sustainable solutions.
+       I have completed all Bachelor exams at UBT and I am ready to contribute to innovative projects that combine application development with data utilization for intelligent solutions. Motivated, flexible, and always open to learning new technologies.
+    </p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React.js</span><span>Next.js</span>
+      <span>PHP</span><span>Node.js</span><span>Java</span><span>Kotlin</span>
+      <span>MySQL</span><span>MongoDB</span><span>WordPress</span><span>Git</span>
+      <span>REST API</span><span>JWT Auth</span><span>PayPal API</span>
+      <span>Web Hosting</span><span>Live Chat</span><span>Bootstrap</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Main Projects</h2>
+    <div class="grid">
+      <div class="card"><h3>Fast Food Website</h3><p>HTML, CSS, JavaScript, PHP, MySQL. JWT authentication and relational structures.</p></div>
+      <div class="card"><h3>Hotel Management System</h3><p>React, Node.js. Reservations, room and client management with JWT.</p></div>
+      <div class="card"><h3>Grade Management</h3><p>React, Node.js. Panel for students and professors with relational database.</p></div>
+      <div class="card"><h3>Rent a Car Website</h3><p>HTML, CSS, JS, PHP. Reservations and authentication for users.</p></div>
+      <div class="card"><h3>Job Search Platform</h3><p>Next.js, MongoDB. Company and user dashboards, JWT authentication.</p></div>
+      <div class="card"><h3>E-commerce Platform</h3><p>React, Node.js, MySQL. PayPal payments, live chat, and product management.</p></div>
+      <div class="card"><h3>Android Food App</h3><p>Java & Kotlin. Login, order placement, food selection, and order tracking.</p></div>
+      <div class="card"><h3>Mini Projects</h3><p>Calculator, Age Calculator, To-Do List with HTML, CSS, JavaScript.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Trainings</h2>
+    <ul>
+      <li>Probit Academy – Java & Spring Boot</li>
+      <li>Arra Academy – Full-Stack Development & WordPress</li>
+      <li>Techtion Academy – React.js</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Certificates</h2>
+    <div class="certificates">
+      <div class="certificate-card">
+        <img src="images/Adonis Hajdaraj.png" alt="Certificate 1">
+        <p>Java & Spring Boot</p>
+      </div>
+      <div class="certificate-card">
+        <img src="images/fronyend.png" alt="Certificate 2">
+        <p>Full-Stack Development</p>
+      </div>
+      <div class="certificate-card">
+        <img src="images/fundamentals.png" alt="Certificate 3">
+        <p>React.js Training</p>
+      </div>
+      <div class="certificate-card">
+        <img src="images/software.png" alt="Certificate 4">
+        <p>React.js Training</p>
+      </div>
+      <div class="certificate-card">
+        <img src="images/spring boot.png" alt="Certificate 5">
+        <p>React.js Training</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>📞 <strong>+383 43 969 447</strong></p>
+    <p>✉️ <a href="mailto:hajdarajadonis24@gmail.com">hajdarajadonis24@gmail.com</a></p>
+    <p>📍 Drenas, Kosovo</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Adonis Hajdaraj. All rights reserved.
+  </footer>
+</body>
+</html>
